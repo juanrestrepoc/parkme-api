@@ -32,14 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   
-  'POST /api/v1/users/login'                          :  "UsersController.login",
-  'POST /api/v1/users'                                :  "UsersController.createUser",
-  'GET /api/v1/users/:id'                             :  "UsersController.getUser",
-  'GET /api/v1/users'                                 :  "UsersController.getAllUsers",
+  'POST /api/v1/users/login'                                :  "UsersController.login",
+  'POST /api/v1/users'                                      :  "UsersController.createUser",
+  'GET /api/v1/users/:id'                                   :  "UsersController.getUser",
+  'GET /api/v1/users'                                       :  "UsersController.getAllUsers",
 
-  'POST /api/v1/periods'                              :  "PeriodsController.createPeriod",
-  'GET /api/v1/periods/current'                       :  "PeriodsController.getCurrent",
-  'PUT /api/v1/periods/:period_id/users/:user_id'     :  "PeriodsController.registerUserOnPeriod",
+  'POST /api/v1/periods'                                    :  "PeriodsController.createPeriod",
+  'GET /api/v1/periods/current'                             :  "PeriodsController.getCurrent",
+  'PUT /api/v1/periods/:period_id/vehicles/:vehicle_id'     :  "PeriodsController.registerVehicleOnPeriod",
 
   /***************************************************************************
   *                                                                          *

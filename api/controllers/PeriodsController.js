@@ -25,16 +25,16 @@ module.exports = {
         });
     },
 
-    registerUserOnPeriod: function(req, res) {
-        Users.findOne({id: req.param('user_id')}).exec(function(err, user){
+    registerVehicleOnPeriod: function(req, res) {
+        Vehicles.findOne({id: req.param('vehicle_id')}).exec(function(err, vehicle){
             if (err) { return res.serverError(err); }
-            if (!user) { return res.userNotFound(); }
+            if (!vehicle) { return res.userNotFound(); }
 
             Periods.findOne({id: req.param('period_id')}).exec(function(err, period) {
                 if (err) { return res.serverError(err); }
 
-                user.inPeriod = period;
-                Users.update({id: user.id}, user, function(err) {
+                vehicle.inPeriod = period;
+                Vehicles.update({id: vehicle.id}, vehicle, function(err) {
                     if (err) { return res.serverError(err); }
 
                     res.json({ message: "ok" });

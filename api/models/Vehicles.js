@@ -11,6 +11,10 @@ module.exports = {
         },
         user: {
             model : "users"
+        },
+        inPeriod: {
+          model: 'periods',
+          defaultsTo: null
         }
     }
 };

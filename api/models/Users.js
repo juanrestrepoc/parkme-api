@@ -40,10 +40,6 @@ module.exports = {
     vehicles: {
       collection : 'vehicles',
       via: 'user'
-    },
-    inPeriod: {
-      model: 'periods',
-      defaultsTo: null
     }
   },
   hashPassword: function(password) {
@@ -68,22 +64,7 @@ module.exports = {
           token: token
       };
 
-      Users.isInCurrentPeriod(user, function(err, inPeriod) {
-        if (err) { return callback(err); }
-
-        user.inPeriod = inPeriod;
-        
-        return callback(null, user);
-      });
-    });
-  },
-  isInCurrentPeriod: function(user, callback) {
-    if (!user.inPeriod) { return callback(null, false); }
-
-    Periods.getCurrent(function(err, period) {
-      if (err) { return callback(err); }
-
-      return callback(null, true);
+      return callback(null, user);
     });
   }
 }
