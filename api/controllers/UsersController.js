@@ -5,6 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+const adminUser = {
+    isAdmin: true
+};
 var bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -30,6 +33,18 @@ module.exports = {
 
     protectedAPI: function(req, res) {
         return res.json(req.user);
+    },
+
+    getAllUsers: function(req, res) {
+        if (adminUser.isAdmin) {
+            Users.find().populate('vehicles').then(function(allUsers) {
+                return res.json(allUsers);
+            })
+        } else {
+            return res.json({
+                todo: 'Not implemented yet!'
+            });
+        }
     }
 };
 
