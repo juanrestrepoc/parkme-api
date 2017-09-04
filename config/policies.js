@@ -30,7 +30,9 @@ module.exports.policies = {
 
   'UsersController': {
     'login': true,
-    'createUser': true
+    'createUser': true,
+
+    'getAllUsers': [ 'isAuthorized', 'isAdmin' ]
   }
 
   /***************************************************************************

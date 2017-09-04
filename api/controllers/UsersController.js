@@ -35,7 +35,7 @@ module.exports = {
             password: req.body.password,
             cc: req.body.cc,
             vehicles: req.body.vehicles,
-            isAdmin: false
+            isAdmin: true
         };
 
         Users.findOne({or: [{email: body.email}, {id: body.id}]}, function(err, user) {
@@ -63,15 +63,13 @@ module.exports = {
     },
 
     getAllUsers: function(req, res) {
-        if (adminUser.isAdmin) {
-            Users.find().populate('vehicles').then(function(allUsers) {
-                return res.json(allUsers);
-            })
-        } else {
-            return res.json({
-                todo: 'Not implemented yet!'
-            });
-        }
+        Users.find().populate('vehicles')
+        .then(function(allUsers) {
+            return res.json(allUsers);
+        })
+        .catch(function(err) {
+            return res.serverError(err);
+        })
     }
 };
 

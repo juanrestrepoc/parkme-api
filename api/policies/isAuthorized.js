@@ -25,7 +25,8 @@ module.exports = function (req, res, next) {
       req.token = token;
       
       Users.findOne({email: token.email}).populate('vehicles').exec(function(err, user) {
-          if (err || !user) { return res.userNotFound(token.email); }
+          if (err) { return res.serverError(err); }
+          if (!user) { return res.emailOrPasswordInvalid(); }
 
           req.user = user;
           next();
