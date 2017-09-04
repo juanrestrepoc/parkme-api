@@ -41,6 +41,8 @@ module.exports.routes = {
   'GET /api/v1/periods/current'                             :  "PeriodsController.getCurrent",
   'PUT /api/v1/periods/:period_id/vehicles/:vehicle_id'     :  "PeriodsController.registerVehicleOnPeriod",
 
+  'GET /api/v1/periods/:period_id/freelot'            :  "AbsentdaysController.getFreeLots"
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
