@@ -58,7 +58,7 @@ module.exports.connections = {
   ***************************************************************************/
   mongoDb: {
     adapter: 'sails-mongo',
-    host: 'localhost', // defaults to `localhost` if omitted 
+    host: '192.168.61.12', // defaults to `localhost` if omitted 
     port: 27017, // defaults to 27017 if omitted 
     database: 'parkmedb' // or omit if not relevant 
   }
