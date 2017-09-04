@@ -34,13 +34,13 @@ module.exports = {
     },
     vehicles: {
       collection : 'vehicle'
-    },
-    hashPassword: function(password) {
-      return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-    },
-    comparePassword: function(user, password) {
-      return bcrypt.compareSync(password, user.password);
     }
+  },
+  hashPassword: function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  },
+  comparePassword: function(user, password) {
+    return bcrypt.compareSync(password, user.password);
   }
 }
 

@@ -24,10 +24,13 @@ module.exports = {
 
             var token = jwToken.issue({ email: user.email });
 
-            return res.send({
+            user = user.toJSON();
+            user.auth = {
                 type: "Bearer",
                 token: token
-            });
+            };
+
+            return res.send(user);
         })
     },
 
