@@ -8,15 +8,16 @@
 module.exports = {
 
   attributes: {
-    start_date: {
+    startDate: {
       type: "date"
     },
-    end_date: {
+    endDate: {
       type: "date"
-    },
-    employee_id: {
-      type: "string"
     }
+  },
+
+  getCurrent: function(callback) {
+    Periods.find().limit(1).sort('endDate DESC').exec(callback);
   }
 };
 

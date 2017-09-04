@@ -33,6 +33,11 @@ module.exports.policies = {
     'createUser': true,
 
     'getAllUsers': [ 'isAuthorized', 'isAdmin' ]
+  },
+
+  'PeriodsController': {
+    'createPeriod': ['isAuthorized', 'isAdmin'],
+    'registerUserOnPeriod': ['isAuthorized', 'isAdmin'],
   }
 
   /***************************************************************************

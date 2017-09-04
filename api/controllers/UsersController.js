@@ -35,7 +35,7 @@ module.exports = {
             password: req.body.password,
             cc: req.body.cc,
             vehicles: req.body.vehicles,
-            isAdmin: true
+            isAdmin: false
         };
 
         Users.findOne({or: [{email: body.email}, {id: body.id}]}, function(err, user) {
