@@ -32,9 +32,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   
-  'POST /api/v1/users/login':  "UsersController.login",
-  'GET /api/v1/users':  "UsersController.protectedAPI",
-  'GET /users': 'UsersController.getAllUsers'
+  'POST /api/v1/users/login'        :  "UsersController.login",
+  'POST /api/v1/users'              :  "UsersController.createUser",
+  'GET /api/v1/users/:id'           :  "UsersController.getUser",
+  'GET /api/v1/users'               :  "UsersController.getAllUsers"
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

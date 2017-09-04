@@ -24,7 +24,7 @@ module.exports = function (req, res, next) {
       if (err) return res.json(401, {message: 'Invalid Token!'});
       req.token = token;
       
-      Users.findOne({email: token.email}, function(err, user) {
+      Users.findOne({email: token.email}).populate('vehicles').exec(function(err, user) {
           if (err || !user) { return res.userNotFound(token.email); }
 
           req.user = user;
