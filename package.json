@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "ejs": "^2.5.7",
     "include-all": "^1.0.0",
     "jsonwebtoken": "^7.4.3",
     "rc": "1.0.1",

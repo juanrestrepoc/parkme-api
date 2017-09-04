@@ -5,7 +5,10 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+var bcrypt = require('bcryptjs');
+
 module.exports = {
+  tableName: 'users',
 
   attributes: {
     name: {
@@ -40,6 +43,14 @@ module.exports = {
         }
       }
     ]
+  },
+
+  hashPassword: function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  },
+
+  comparePassword: function(user, password) {
+    return bcrypt.compareSync(password, user.password);
   }
 };
 

@@ -9,10 +9,27 @@ var bcrypt = require('bcryptjs');
 
 module.exports = {
 	login: function(req, res) {
-        var salt = bcrypt.genSaltSync(10),
-            hash = bcrypt.hashSync("myPassword", salt);
+        if (!req.body.email) { return res.parameterRequired("email"); }
+        if (!req.body.password) { return res.parameterRequired("password"); }
 
-        res.send(bcrypt.compareSync("myPassword", hash));
+        Users.findOne({email: req.body.email}, function(err, user) {
+            if (err || !user) { return res.userNotFound(req.body.email); }
+
+            if (!Users.comparePassword(user, req.body.password)) {
+                return res.invalidPassword();
+            }
+
+            var token = jwToken.issue({ email: user.email });
+
+            return res.send({
+                type: "Bearer",
+                token: token
+            });
+        })
+    },
+
+    protectedAPI: function(req, res) {
+        return res.json(req.user);
     }
 };
 
