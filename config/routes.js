@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  
+  'POST /api/v1/users/login':  "UsersController.login"
 
   /***************************************************************************
   *                                                                          *
