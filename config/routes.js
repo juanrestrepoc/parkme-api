@@ -31,10 +31,10 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  
+  'POST /api/v1/users/login':  "UsersController.login",
 
-  '/': {
-    view: 'homepage'
-  }
+  'GET /api/v1/users':  "UsersController.protectedAPI"
 
   /***************************************************************************
   *                                                                          *
