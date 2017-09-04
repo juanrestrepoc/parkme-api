@@ -11,10 +11,13 @@ module.exports = {
     startDate: {
       type: "date"
     },
-    endDate: {
-      type: "date"
+    vehicleId: {
+      type: "string"
     },
-    userId : {
+    claimById : {
+      type: "string"
+    },
+    period_id : {
       type: "string"
     }
   }
