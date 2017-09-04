@@ -59,7 +59,14 @@ module.exports = {
     getUser: function(req, res) {
         if (req.param('id') != req.user.id) { return res.unAuthorized(); }
 
-        return res.send(req.user);
+        Users.isInCurrentPeriod(req.user, function(err, inPeriod) {
+            if (err) { return callback(err); }
+
+            var user = req.user.toJSON();
+            user.inPeriod = inPeriod;
+            
+            return res.send(user);
+        });
     },
 
     getAllUsers: function(req, res) {
