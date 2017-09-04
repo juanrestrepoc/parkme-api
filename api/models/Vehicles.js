@@ -15,6 +15,10 @@ module.exports = {
         inPeriod: {
           model: 'periods',
           defaultsTo: null
+        },
+        type: {
+            type: 'string',
+            enum: ['CAR', 'BIKE']
         }
     }
 };
