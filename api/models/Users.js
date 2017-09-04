@@ -32,25 +32,15 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     },
-    vehicles: [
-      {
-        plateNumber: {
-          type: "string",
-          required: true
-        },
-        description: {
-          type: "string"
-        }
-      }
-    ]
-  },
-
-  hashPassword: function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-  },
-
-  comparePassword: function(user, password) {
-    return bcrypt.compareSync(password, user.password);
+    vehicles: {
+      collection : 'vehicle'
+    },
+    hashPassword: function(password) {
+      return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    },
+    comparePassword: function(user, password) {
+      return bcrypt.compareSync(password, user.password);
+    }
   }
-};
+}
 
