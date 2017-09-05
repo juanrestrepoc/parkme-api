@@ -32,16 +32,17 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   
-  'POST /api/v1/users/login'                                :  "UsersController.login",
-  'POST /api/v1/users'                                      :  "UsersController.createUser",
-  'GET /api/v1/users/:id'                                   :  "UsersController.getUser",
-  'GET /api/v1/users'                                       :  "UsersController.getAllUsers",
+  'POST /api/v1/users/login'                                                      :  "UsersController.login",
+  'POST /api/v1/users'                                                            :  "UsersController.createUser",
+  'GET /api/v1/users/:id'                                                         :  "UsersController.getUser",
+  'GET /api/v1/users'                                                             :  "UsersController.getAllUsers",
 
-  'POST /api/v1/periods'                                    :  "PeriodsController.createPeriod",
-  'GET /api/v1/periods/current'                             :  "PeriodsController.getCurrent",
-  'PUT /api/v1/periods/:period_id/vehicles/:vehicle_id'     :  "PeriodsController.registerVehicleOnPeriod",
+  'POST /api/v1/periods'                                                          :  "PeriodsController.createPeriod",
+  'GET /api/v1/periods/current'                                                   :  "PeriodsController.getCurrent",
+  'PUT /api/v1/periods/:period_id/vehicles/:vehicle_id'                           :  "PeriodsController.registerVehicleOnPeriod",
 
-  'GET /api/v1/periods/:period_id/freelot'            :  "AbsentdaysController.getFreeLots"
+  'POST /api/v1/periods/:period_id/vehicles/:vehicle_id/freelots'                 :  "AbsentdaysController.registerFreeLot",
+  'GET /api/v1/periods/:period_id/freelot'                                        :  "AbsentdaysController.getFreeLots"
 
   /***************************************************************************
   *                                                                          *

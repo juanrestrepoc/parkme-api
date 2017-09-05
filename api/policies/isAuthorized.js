@@ -1,4 +1,5 @@
 module.exports = function (req, res, next) {
+  next();
     var token;
   
     if (req.headers && req.headers.authorization) {
