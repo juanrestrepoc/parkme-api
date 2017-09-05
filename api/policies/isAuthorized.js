@@ -1,5 +1,5 @@
 module.exports = function (req, res, next) {
-  Users.findOne(req.param('id'), function(err, user) {
+  Users.findOne(req.param('id')).populate('vehicles').exec(function(err, user) {
     if (err) { return res.serverError(err); }
     if (!user) { return res.emailOrPasswordInvalid(); }
 
