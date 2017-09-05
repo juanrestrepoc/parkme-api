@@ -1,5 +1,13 @@
 module.exports = function (req, res, next) {
-  next();
+  Users.findOne(req.param('id'), function(err, user) {
+    if (err) { return res.serverError(err); }
+    if (!user) { return res.emailOrPasswordInvalid(); }
+
+    req.user = user;
+    next();
+  })
+
+  return;
     var token;
   
     if (req.headers && req.headers.authorization) {
